@@ -1,27 +1,59 @@
-# Code Documentation
+# Music Band Documentation
 
-This repository consists of utility functions for automating the process of generating documentation for code snippets from a repository. The key functions in this codebase are as follows:
+This documentation provides an overview of a Python program that simulates a music band with members playing different musical instruments. The instruments include Guitar, Bass, and Drums. Each instrument has specific functionalities to showcase the skills of the band members.
 
-## `prepare_documentation(code_snippet)`
+## Classes Overview
 
-This function uses OpenAI's GPT-3.5 Turbo model to generate documentation for a given code snippet. It takes the code snippet as input and returns a formatted documentation suitable for GitHub Pages.
+### `MusicInstrument`
+- The base class for all music instruments.
+- **Attributes**:
+    - `player`: The name of the player.
+    - `num_strings`: The number of strings in the instrument.
+    - `type`: The type of the instrument (default is 'acoustic').
+- **Methods**:
+    - `play_it(notes)`: Plays the instrument based on the notes provided.
 
-## `get_changed_files()`
+### `Guitar`
+- Subclass of `MusicInstrument` representing a Guitar.
+- **Additional Attributes**:
+    - None
+- **Additional Methods**:
+    - `strum_chords(chords)`: Strums chords on the guitar.
 
-This function retrieves a list of files that have changed in the repository. It utilizes Git commands to determine the changed files compared to the previous commit.
+### `Bass`
+- Subclass of `MusicInstrument` representing a Bass guitar.
+- **Additional Attributes**:
+    - None
+- **Additional Methods**:
+    - `play_riff(riff)`: Plays a riff on the bass guitar.
 
-## `read_code_from_files(file_list)`
+### `Drums`
+- Subclass of `MusicInstrument` representing Drums.
+- **Additional Attributes**:
+    - None
+- **Additional Methods**:
+    - `hit_drums(drum_type)`: Hits a specific type of drum.
 
-This function reads code snippets from a list of files and concatenates them into a single string. It filters out files that do not have a `.py` extension.
+## Band Setup and Performance
 
-## `get_sum(a, b)`
+The code sets up a band with the following members:
+- **Guitarist**: Karl, playing an electric guitar.
+- **Bassist**: Dallas, playing a 4-string bass guitar.
+- **Drummer**: George, playing acoustic drums.
 
-A sample function that calculates the sum of two input numbers and returns the result.
+The band performs the following actions:
+1. **Playing a Song**:
+    - Guitarist strums chords: ["Am", "Em", "Dm"]
+    - Bassist plays a bassline riff.
+    - Drummer hits the snare drum.
 
-## `print_it(some_message)`
+2. **Showcasing Skills**:
+    - Each band member showcases their unique skills:
+        - Guitarist plays a solo.
+        - Bassist plays a funky bassline.
+        - Drummer performs a drum solo.
 
-A sample function that prints the input message to the console.
+### Note
+- The band members demonstrate their skills based on the type of instrument they are playing (acoustic or electric).
 
-These functions work together to automate the process of extracting code snippets, generating documentation for them, and saving the documentation in a markdown file (`docs/index.md`) for publishing on GitHub Pages.
-
-For more details on how to use these functions and integrate them into your workflow, refer to the code snippets and function descriptions above.
+This documentation outlines the structure and functionality of the Python program simulating a music band, highlighting the interactions between band members and their instruments.
