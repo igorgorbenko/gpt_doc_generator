@@ -13,7 +13,7 @@ def prepare_documentation(code_snippet):
         ---
         {code_snippet}
         --- 
-        Provide a documentation for this code suitable for GitHub Pages"""
+        Provide a documentation for this code suitable for GitHub Pages. Generate a diagram as well"""
     
     response = openai.chat.completions.create(
         model="gpt-3.5-turbo",
