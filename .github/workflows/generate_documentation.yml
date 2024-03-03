@@ -32,15 +32,18 @@ jobs:
 
     - name: Setup SSH
       run: |
-        mkdir -p ~/.ssh
-        echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
-        chmod 600 ~/.ssh/id_rsa
+        eval "$(ssh-agent -s)"
+        ssh-add - <<< "${{ secrets.SSH_PRIVATE_KEY }}"
         ssh-keyscan github.com >> ~/.ssh/known_hosts
 
     - name: Commit and Push Documentation
       run: |
         git config --global user.name 'GitHub Actions'
         git config --global user.email 'actions@github.com'
-        git add docs/
-        git commit -m "Update documentation"
-        git push git@github.com:igorgorbenko/gpt_doc_generator.git dev
+        if git status --porcelain | grep 'docs/'; then
+          git add docs/
+          git commit -m "Update documentation"
+          git push git@github.com:igorgorbenko/gpt_doc_generator.git dev
+        else
+          echo "No changes to commit."
+        fi
