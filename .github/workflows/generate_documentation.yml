@@ -32,11 +32,10 @@ jobs:
 
     - name: Setup SSH
       run: |
-        mkdir -p ~/.ssh
-        chmod 700 ~/.ssh
         eval "$(ssh-agent -s)"
-        ssh-add - <<< "${{ secrets.SSH_PRIVATE_KEY }}"
+        mkdir -p ~/.ssh # Убедитесь, что директория ~/.ssh существует
         ssh-keyscan github.com >> ~/.ssh/known_hosts
+        ssh-add - <<< "${{ secrets.SSH_PRIVATE_KEY }}"
 
     - name: Commit and Push Documentation
       run: |
