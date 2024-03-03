@@ -13,7 +13,7 @@ def prepare_documentation(code_snippet):
         ---
         {code_snippet}
         --- 
-        Provide a documentation for this code suitable for GitHub Pages"""
+        Provide a documentation for this code suitable for GitHub Pages."""
     
     response = openai.chat.completions.create(
         model="gpt-3.5-turbo",
@@ -22,7 +22,6 @@ def prepare_documentation(code_snippet):
         temperature=0.7,
         top_p=1
     )
-    print(response)
     return response.choices[0].message.content
 
 
