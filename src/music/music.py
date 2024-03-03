@@ -34,4 +34,3 @@ class Drums(MusicInstrument):
     def hit_drums(self, drum_type):
         print(f"The {self.type} {self.player} hits the {drum_type} drum!")
 
-
