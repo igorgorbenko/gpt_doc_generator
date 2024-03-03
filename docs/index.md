@@ -1,59 +1,78 @@
 # Music Band Documentation
 
-This documentation covers the code implementation for a music band comprising a guitarist, bassist, and drummer. The band members demonstrate their musical skills by playing various instruments and showcasing unique performances.
+This documentation provides details about a Python program simulating a music band with members playing different musical instruments.
 
-## Code Snippet Overview
+## Overview
 
-The code snippet defines classes for different musical instruments, namely `Guitar`, `Bass`, and `Drums`, each representing a band member specializing in playing the respective instrument.
+The program defines classes for different musical instruments and band members playing those instruments. Each class represents a specific instrument and includes methods for playing the instrument in different styles.
 
-### Guitar Class
+## Classes
+
+### `MusicInstrument`
+
 - **Attributes**:
-    - `name`: Name of the guitarist
-    - `strings`: Number of strings on the guitar
-    - `type`: Type of guitar (e.g., electric, acoustic)
+  - `player`: The name of the player.
+  - `num_strings`: The number of strings the instrument has.
+  - `type`: The type of the instrument (default is acoustic).
 
-### Bass Class
-- **Attributes**:
-    - `name`: Name of the bassist
-    - `strings`: Number of strings on the bass guitar
+- **Methods**:
+  - `play_it(notes)`: Plays the instrument based on the type.
 
-### Drums Class
+### `Guitar`
+
 - **Attributes**:
-    - `name`: Name of the drummer
-    - `type`: Type of drums (e.g., acoustic, electronic)
+  - Inherits from `MusicInstrument`.
+  
+- **Methods**:
+  - `strum_chords(chords)`: Strums the guitar with given chords.
+
+### `Bass`
+
+- **Attributes**:
+  - Inherits from `MusicInstrument`.
+  
+- **Methods**:
+  - `play_riff(riff)`: Plays a riff on the bass guitar.
+
+### `Drums`
+
+- **Attributes**:
+  - Inherits from `MusicInstrument`.
+  
+- **Methods**:
+  - `hit_drums(drum_type)`: Hits the drums with the specified drum type.
+
+## Example Band Setup
+
+The code sets up a band with the following members and instruments:
+
+1. **Guitarist**:
+   - Name: Karl
+   - Number of strings: 6
+   - Type: Electric
+   - Method: `strum_chords(["Am", "Em", "Dm"])`
+
+2. **Bassist**:
+   - Name: Dallas
+   - Number of strings: 4
+   - Type: Acoustic
+   - Method: `play_riff("bassline")`
+
+3. **Drummer**:
+   - Name: George
+   - Type: Acoustic
+   - Method: `hit_drums("snare")`
 
 ## Band Performance
 
-The band performs a song where each member plays their part:
-1. The guitarist strums chords like "Am", "Em", "Dm".
-2. The bassist plays a bassline riff.
-3. The drummer hits the drums, like the snare.
+The band plays a song where each member showcases their skills:
+1. Guitarist Karl strums chords.
+2. Bassist Dallas plays a bassline riff.
+3. Drummer George hits the snare drum.
 
-## Individual Showcases
+After the performance, each member plays a solo or a unique style:
+- Karl plays a guitar solo.
+- Dallas plays a funky bassline.
+- George performs a drum solo.
 
-After the band performance, each member showcases their unique skills:
-- The guitarist plays a solo.
-- The bassist plays a funky bassline.
-- The drummer performs a drum solo.
-
-## Band Members
-1. **Guitarist**:
-    - Name: Karl
-    - Strings: 6
-    - Type: Electric
-
-2. **Bassist**:
-    - Name: Dallas
-    - Strings: 4
-
-3. **Drummer**:
-    - Name: George
-    - Type: Acoustic
-
----
-
-![Band Performance Diagram](add_generated_diagram_url_here)
-
----
-
-This documentation provides insights into the code structure and functionality of the music band implementation. Each band member contributes their part to create a harmonious musical performance.
+This Python program demonstrates a simple music band simulation where each member contributes their unique sound to create music together.
