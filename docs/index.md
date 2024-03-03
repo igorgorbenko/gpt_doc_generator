@@ -1,48 +1,61 @@
 # Music Band Documentation
 
-This repository contains a Python program that simulates a music band with members playing different musical instruments. The main classes in this program are `MusicInstrument`, `Guitar`, `Bass`, and `Drums`.
+This documentation provides an overview of a Python program that simulates a music band with members playing different musical instruments. The band consists of a guitarist, a bassist, and a drummer, each demonstrating their unique skills through playing various musical elements. The program utilizes classes and inheritance to represent different types of musical instruments and their players.
 
-## MusicInstrument Class
+## Classes
 
-The `MusicInstrument` class represents a generic musical instrument and has the following attributes:
+### `MusicInstrument`
+- This is the base class for all musical instruments.
+- **Attributes**:
+  - `player`: Represents the player of the instrument.
+  - `num_strings`: Indicates the number of strings the instrument has.
+  - `type`: Specifies the type of the instrument (default is acoustic).
+- **Methods**:
+  - `play_it(notes)`: Plays the instrument based on the notes provided.
 
-- `player`: The name of the player.
-- `num_strings`: The number of strings the instrument has.
-- `type`: The type of the instrument, which can be either 'acoustic' or 'electric'.
+### `Guitar`
+- Inherits from `MusicInstrument` class.
+- Represents a guitar player.
+- **Additional Methods**:
+  - `strum_chords(chords)`: Strums chords on the guitar.
 
-It also has a method `play_it(notes)` that allows the player to play notes. The behavior differs based on the type of the instrument.
+### `Bass`
+- Inherits from `MusicInstrument` class.
+- Represents a bass guitar player.
+- **Additional Methods**:
+  - `play_riff(riff)`: Plays a riff on the bass guitar.
 
-## Guitar Class
-
-The `Guitar` class is a subclass of `MusicInstrument` and represents a guitar instrument. It has a method `strum_chords(chords)` that allows the guitarist to strum chords. 
-
-## Bass Class
-
-The `Bass` class is a subclass of `MusicInstrument` and represents a bass guitar instrument. It has a method `play_riff(riff)` that allows the bassist to play a riff.
-
-## Drums Class
-
-The `Drums` class is a subclass of `MusicInstrument` and represents a drum instrument. It has a method `hit_drums(drum_type)` that allows the drummer to hit the drums.
-
-## Band Simulation
-
-In the provided script, an instance of each instrument is created - a guitarist, a bassist, and a drummer. The band then plays a song where each member showcases their unique skills. The guitarist strums chords, the bassist plays a riff, and the drummer hits the drums.
+### `Drums`
+- Inherits from `MusicInstrument` class.
+- Represents a drummer.
+- **Additional Methods**:
+  - `hit_drums(drum_type)`: Hits a specific type of drum.
 
 ## Usage
 
-To run the simulation, execute the script in the terminal. Here is an example output of the band playing a song:
+1. Create instances of `Guitar`, `Bass`, and `Drums` classes with respective player names and instrument details.
+2. Simulate the band playing a song by calling methods to play chords, riffs, and hit drums.
+3. Each band member demonstrates their unique skills through solos and specific musical elements.
 
+```python
+from music.music import Guitar, Bass, Drums
+
+guitarist = Guitar("Karl", 6, type='electric')
+guitarist_2 = Guitar("Kerry", 6, type='electric')
+bassist = Bass("Dallas", 4)
+drummer = Drums("George", type='acoustic')
+
+print("The band is playing a song:")
+guitarist.strum_chords(["Am", "Em", "Dm"])
+guitarist_2.strum_chords(["Dm", "Dm", "Dm"])
+bassist.play_riff("bassline")
+drummer.hit_drums("snare")
+
+print("\nWow! Each band member showcases their unique skills!")
+guitarist.play_it("solo")
+guitarist_2.play_it("super solo")
+bassist.play_it("funky bassline")
+drummer.play_it("drum solo")
 ```
-The band is playing a song:
-The electric Karl strums ['Am', 'Em', 'Dm'] chords!
-The electric Dallas plays a cool bassline riff!
-The acoustic George hits the snare drum!
 
-Wow! Each band member showcases their unique skills!
-Karl plays fast solo!
-Dallas plays slowly funky bassline!
-George plays slowly drum solo!
-George plays slowly another one drum solo!
-```
-
-Feel free to modify the players, instruments, and actions to create your own music band simulation.
+This documentation provides an insight into how the program models a music band and demonstrates the interactions between band members playing various musical instruments.
