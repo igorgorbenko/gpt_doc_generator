@@ -1,6 +1,7 @@
 from music.music import Guitar, Bass, Drums
 
 guitarist = Guitar("Karl", 6, type='electric')
+guitarist = Guitar("Kerry", 6, type='electric')
 bassist = Bass("Dallas", 4)
 drummer = Drums("George", type='acoustic')
 
@@ -13,5 +14,5 @@ print("\nWow! Each band member showcases their unique skills!")
 guitarist.play_it("solo")
 bassist.play_it("funky bassline")
 drummer.play_it("drum solo")
-drummer.play_it("another one drum solo")
+
 
