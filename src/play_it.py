@@ -1,7 +1,6 @@
 from music.music import Guitar, Bass, Drums
 
 guitarist = Guitar("Karl", 6, type='electric')
-guitarist = Guitar("Kerry", 6, type='electric')
 bassist = Bass("Dallas", 4)
 drummer = Drums("George", type='acoustic')
 
