@@ -1,58 +1,61 @@
 # Music Band Documentation
 
-This documentation provides an overview of a Python program that simulates a music band consisting of members playing different musical instruments. The code defines classes for various musical instruments like Guitar, Bass, and Drums, along with their functionalities.
+This documentation provides an overview of a Python program that simulates a music band with members playing different musical instruments. The band consists of a guitarist, a bassist, and a drummer, each demonstrating their unique skills through playing various musical elements. The program utilizes classes and inheritance to represent different types of musical instruments and their players.
 
 ## Classes
 
 ### `MusicInstrument`
 - This is the base class for all musical instruments.
-- Attributes:
+- **Attributes**:
   - `player`: Represents the player of the instrument.
   - `num_strings`: Indicates the number of strings the instrument has.
-  - `type`: Specifies the type of the instrument, default is 'acoustic'.
-- Methods:
-  - `play_it(notes)`: Plays the instrument based on the type. Slow for acoustic, fast for others.
+  - `type`: Specifies the type of the instrument (default is acoustic).
+- **Methods**:
+  - `play_it(notes)`: Plays the instrument based on the notes provided.
 
 ### `Guitar`
-- Subclass of `MusicInstrument` representing a Guitar.
-- Additional Methods:
-  - `strum_chords(chords)`: Allows the player to strum chords on the guitar.
+- Inherits from `MusicInstrument` class.
+- Represents a guitar player.
+- **Additional Methods**:
+  - `strum_chords(chords)`: Strums chords on the guitar.
 
 ### `Bass`
-- Subclass of `MusicInstrument` representing a Bass guitar.
-- Additional Methods:
-  - `play_riff(riff)`: Enables the player to play a cool riff on the bass guitar.
+- Inherits from `MusicInstrument` class.
+- Represents a bass guitar player.
+- **Additional Methods**:
+  - `play_riff(riff)`: Plays a riff on the bass guitar.
 
 ### `Drums`
-- Subclass of `MusicInstrument` representing Drums.
-- Additional Methods:
-  - `hit_drums(drum_type)`: Lets the player hit a specific type of drum.
+- Inherits from `MusicInstrument` class.
+- Represents a drummer.
+- **Additional Methods**:
+  - `hit_drums(drum_type)`: Hits a specific type of drum.
 
-## Band Members
+## Usage
 
-1. **Guitarist**
-   - **Name**: Karl
-   - **Instrument**: Electric Guitar with 6 strings
-   - **Actions**:
-     - Strums chords: ["Am", "Em", "Dm"]
-     - Plays a solo
+1. Create instances of `Guitar`, `Bass`, and `Drums` classes with respective player names and instrument details.
+2. Simulate the band playing a song by calling methods to play chords, riffs, and hit drums.
+3. Each band member demonstrates their unique skills through solos and specific musical elements.
 
-2. **Bassist**
-   - **Name**: Dallas
-   - **Instrument**: Bass Guitar with 4 strings
-   - **Actions**:
-     - Plays a bassline riff
-     - Plays a funky bassline
+```python
+from music.music import Guitar, Bass, Drums
 
-3. **Drummer**
-   - **Name**: George
-   - **Instrument**: Acoustic Drums
-   - **Actions**:
-     - Hits the snare drum
-     - Performs a drum solo
+guitarist = Guitar("Karl", 6, type='electric')
+guitarist_2 = Guitar("Kerry", 6, type='electric')
+bassist = Bass("Dallas", 4)
+drummer = Drums("George", type='acoustic')
 
-## Band Performance
+print("The band is playing a song:")
+guitarist.strum_chords(["Am", "Em", "Dm"])
+guitarist_2.strum_chords(["Dm", "Dm", "Dm"])
+bassist.play_riff("bassline")
+drummer.hit_drums("snare")
 
-The band comes together to play a song where each member showcases their unique skills. The guitarist strums chords, the bassist plays a riff, and the drummer hits the drums. Following this, each member demonstrates their individual talent through a solo performance.
+print("\nWow! Each band member showcases their unique skills!")
+guitarist.play_it("solo")
+guitarist_2.play_it("super solo")
+bassist.play_it("funky bassline")
+drummer.play_it("drum solo")
+```
 
-This Python program exemplifies the coordination and synergy among band members, highlighting their musical expressions and contributions to the overall performance.
+This documentation provides an insight into how the program models a music band and demonstrates the interactions between band members playing various musical instruments.
